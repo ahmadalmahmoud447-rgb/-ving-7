@@ -15,6 +15,20 @@ def lag_nytt_emne():
 
     print(f"Emne {kode} lagt til.")
 
+def legg_til_emne_studieplan():
+    print("Alle emner;")
+    for i, kode in enumerate(emnekode):
+        print(f"{i}: {kode} ({semester[i]}, {studiepoeng[i]} sp)")
+
+
+indeks = int(input("velg emne (indeks): "))
+semnr = int(input("hvilket semester (1-6)? "))
+
+
+studiepan[semnr -1].append(indeks)
+print(f" Emne {emnekoder[indeks]} lat til i semester {semnr}.")
+
+
 
 
 
