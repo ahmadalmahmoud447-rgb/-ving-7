@@ -1,3 +1,7 @@
+emnekoder = []
+emnesemester = []
+emnestudiepoeng = []
+studieplan = {1: [], 2: [], 3: [], 4: [], 5: [], 6: []}
 
 
 def lag_nytt_emne():
@@ -18,3 +22,38 @@ def skriv_ut_emner():
     print("📚 Registrerte emner:")
     for i, kode in enumerate(emnekoder):
         print(f"{kode} - {semester[i]} - {studiepoeng[i]} sp")
+
+
+def meny():
+    while True:
+        print("1. Lag nytt emne")
+        print("2. Legg til emne i studieplan")
+        print("3. Skriv ut alle emner")
+        print("4. Skriv ut studieplan")
+        print("5. Sjekk om studieplanen er gyldig")
+        print("6. Lagre til fil")
+        print("7. Les fra fil (oppretter filer hvis de mangler)")
+        print("8. Avslutt")
+
+        valg = input("velg: ")
+        print()
+        if valg == "1":
+            lag_nytt_emne()
+        elif valg == "2":
+            legg_til_emne_i_plan()
+        elif valg == "3":
+            skriv_ut_emner()
+        elif valg == "4":
+            skriv_ut_studieplan()
+        elif valg == "5":
+            sjekk_gyldighet()
+        elif valg == "6":
+            lagre_til_fil()
+        elif valg == "7":
+            les_fra_fil()
+        elif valg == "8":
+            print("Avslutter programmet...")
+            break
+        else:
+            print("Ugyldig valg. \n")
+meny()
