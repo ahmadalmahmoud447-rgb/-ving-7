@@ -1,3 +1,0 @@
-#TEST TEST
-
-print("Hallo"
