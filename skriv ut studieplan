@@ -1,0 +1,8 @@
+def skiv_ut_studieplan():
+    for semnr, emner in enumerate(studieplan, start=1):
+        print (f"\nSemester {semnr}: ") 
+        if not emner:
+               print("  (ingen emner)")
+
+        for idx in emner:
+            print(f"   {emnekode[idx]}  ({studiepoeng[idx]}  sp)")
