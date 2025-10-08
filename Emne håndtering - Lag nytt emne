@@ -1,0 +1,10 @@
+def lag_nytt_emne():
+    kode = input("Skriv inn emnekode: ")
+    sem = input("Semester (H for høst / V for vår): ").upper()
+    sp = int(input("Antall studiepoeng: "))
+
+    emnekoder.append(kode)
+    semester.append(sem)
+    studiepoeng.append(sp)
+
+    print(f"Emne {kode} lagt til.")

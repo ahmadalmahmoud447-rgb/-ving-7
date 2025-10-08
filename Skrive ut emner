@@ -1,0 +1,4 @@
+def skriv_ut_emner():
+    print("📚 Registrerte emner:")
+    for i, kode in enumerate(emnekoder):
+        print(f"{kode} - {semester[i]} - {studiepoeng[i]} sp")
