@@ -10,8 +10,8 @@ def lag_nytt_emne():
     sp = int(input("Antall studiepoeng: "))
 
     emnekoder.append(kode)
-    semester.append(sem)
-    studiepoeng.append(sp)
+    emnesemester.append(sem)
+    emnestudiepoeng.append(sp)
 
     print(f"Emne {kode} lagt til.")
 
@@ -21,7 +21,7 @@ def lag_nytt_emne():
 def skriv_ut_emner():
     print("📚 Registrerte emner:")
     for i, kode in enumerate(emnekoder):
-        print(f"{kode} - {semester[i]} - {studiepoeng[i]} sp")
+        print(f"{kode} - {emnesemester[i]} - {emnestudiepoeng[i]} sp")
 
 
 def meny():
