@@ -47,6 +47,48 @@ def skriv_ut_emner():
     for i, kode in enumerate(emnekoder):
         print(f"{kode} - {emnesemester[i]} - {emnestudiepoeng[i]} sp")
 
+import data.py
+
+def lagre_til_fil():
+    try:
+        with open("emner.txt", "w") as f:
+            for i in range(len(data.emnekoder)):
+                f.write(f"{data.emnekoder[i]};{data.emnesemestre[i]};{data.emnepoeng[i]}\n")
+
+        with open("studieplan.txt", "w") as f:
+            for semester in data.studieplan:
+                linje = ",".join(str(i) for i in semester)
+                f.write(linje + "\n")
+
+        print("Data er lagret.")
+    except Exception as e:
+        print(f"Feil ved lagring: {e}")
+
+def les_fra_fil():
+    try:
+        data.emnekoder.clear()
+        data.emnesemestre.clear()
+        data.emnepoeng.clear()
+        data.studieplan = [[], [], [], [], [], []]
+
+        with open("emner.txt", "r") as f:
+            for linje in f:
+                deler = linje.strip().split(";")
+                data.emnekoder.append(deler[0])
+                data.emnesemestre.append(deler[1])
+                data.emnepoeng.append(float(deler[2]))
+
+        with open("studieplan.txt", "r") as f:
+            for i, linje in enumerate(f):
+                if linje.strip():
+                    indekser = [int(idx) for idx in linje.strip().split(",")]
+                    data.studieplan[i] = indekser
+
+        print("Data er lastet inn.")
+    except FileNotFoundError:
+        print("Filer ikke funnet. Start med å legge til emner og lagre.")
+    except Exception as e:
+        print(f"Feil ved innlasting: {e}")
 
 def meny():
     while True:
